@@ -1,0 +1,9 @@
+<h1>Index</h1>
+
+<ul>
+  <% @photos.each do |photo| %>
+    <li><%= photo.caption %></li>
+    <li><blockquote data-width="500" data-height="375" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/<%= photo.embended_html %>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
+<script async src="https://theta360.com/widgets.js" charset="utf-8"></script></li>
+  <% end %>
+</ul>
