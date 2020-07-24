@@ -7,6 +7,10 @@
       <div class="card-body">
         <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
       </div>
+      <div class="card-body">
+        <p><%= @user.introduce %></p>
+      </div>
+      
     </div>
   </aside>
   <div class="col-sm-8">

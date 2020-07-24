@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <p>User name: <%= current_user.name %></p>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
@@ -18,6 +18,7 @@
       <tr>
         <th>id</th>
         <th>THETA ID</th>
+        <th>360 Photo</th>
         <th>caption</th>
       </tr>
     </thead>
