@@ -17,10 +17,10 @@ class PhotosController < ApplicationController
       @photo = Photo.new(photo_params)
 
     if @photo.save
-      flash[:success] = 'Photo が正常に投稿されました'
+      flash[:success] = 'The photo has been successfully posted!'
       redirect_to @photo
     else
-      flash.now[:danger] = 'Photo が投稿されませんでした'
+      flash.now[:danger] = 'No Photo has been posted.'
       render :new
     end
   end
@@ -33,10 +33,10 @@ class PhotosController < ApplicationController
       
 
     if @photo.update(photo_params)
-      flash[:success] = 'photo は正常に更新されました'
+      flash[:success] = 'The photo has been updated successfully.'
       redirect_to @photo
     else
-      flash.now[:danger] = 'photo は更新されませんでした'
+      flash.now[:danger] = 'The photo has not been updated.'
       render :edit
     end
   end
@@ -45,7 +45,7 @@ class PhotosController < ApplicationController
     
     @photo.destroy
 
-    flash[:success] = 'photo は正常に削除されました'
+    flash[:success] = 'That photo has been successfully deleted.'
     redirect_to root_url
   end
   

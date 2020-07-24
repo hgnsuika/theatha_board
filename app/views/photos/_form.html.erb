@@ -1,22 +1,28 @@
-<%= form_with(model: @photo, local: true) do |f| %>
- <% if message.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% message.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col-6">
 
-  <%= f.label :embended_html, 'THETA ID' %>
-  <%= f.text_field :embended_html %>
+    <%= form_with(model: @photo, local: true) do |f| %>
+      <% if message.errors.any? %>
+        <div id="error_explanation" class="alert alert-warning">
+          <ul class="mb-0">
+            <% message.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <%= f.label :caption, 'discription' %>
-  <%= f.text_field :caption %>
-  
-  <%= f.submit 'post' %>
-<% end %>
-
-
-
+      <div class="form-group">
+        <%= f.label :embended_html, 'THETA ID' %>
+        <%= f.text_field :embended_html, class: 'form-control' %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :caption, 'caption' %>
+        <%= f.text_field :caption, class: 'form-control' %>
+      </div>
+      
+      <%= f.submit 'Post', class: 'btn btn-primary' %>
+    <% end %>
+ </div>
+</div>
