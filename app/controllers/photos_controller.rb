@@ -1,11 +1,12 @@
 class PhotosController < ApplicationController
+   before_action :set_photo, only: [:show, :edit, :update, :destroy]
       
   def index
       @photos = Photo.all
   end
 
   def show
-      @photo = Photo.find(params[:id])
+      
   end
 
   def new
@@ -25,11 +26,11 @@ class PhotosController < ApplicationController
   end
 
   def edit
-      @photo = Photo.find(params[:id])
+      
   end
 
   def update
-      @photo = Photo.find(params[:id])
+      
 
     if @photo.update(photo_params)
       flash[:success] = 'photo は正常に更新されました'
@@ -41,7 +42,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
+    
     @photo.destroy
 
     flash[:success] = 'photo は正常に削除されました'
@@ -51,9 +52,20 @@ class PhotosController < ApplicationController
   private
 
   # Strong Parameter
+  
+  def set_photo
+    @photo = Photo.find(params[:id])
+  end
+
+
   def photo_params
     params.require(:photo).permit(:caption, :embended_html)
   end
   
+  
+
+
+ 
+
     
 end

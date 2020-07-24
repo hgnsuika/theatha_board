@@ -1,14 +1,5 @@
-<h1>360 Photo THETA post page </h1>
+<h1>Creat the post </h1>
 
-<%= form_with(model: @photo, local: true) do |f| %>
-  <%= f.label :caption, 'discription' %>
-  <%= f.text_field :caption %>
-  
-  <%= f.label :embended_html, 'THETA ID' %>
-  <%= f.text_field :embended_html %>
-
-
-  <%= f.submit 'post' %>
-<% end %>
+<%= render 'form', message: @photo %>
 
 <%= link_to 'go back to Index', photos_path %>
