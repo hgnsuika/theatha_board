@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: 'photos#index'
+  get 'signup', to: 'users#new'
+  
+  resources :users, only: [:index, :show, :new, :create]
   resources :photos, except: [:index]
 # 下記省略
 #   get 'photos/:id', to: 'photos#show'
