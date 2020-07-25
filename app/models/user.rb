@@ -7,4 +7,7 @@ class User < ApplicationRecord
     validates :introduce, presence: true, length: { maximum: 150 }     
                     
     has_secure_password
+    
+    has_many :photos
+    has_many :comments
 end

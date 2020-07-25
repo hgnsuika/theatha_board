@@ -1,11 +1,12 @@
 class PhotosController < ApplicationController
-   before_action :require_user_logged_in, only: [:new, :creat ,:show, :edit, :update, :destroy
-   ]
+  before_action :require_user_logged_in, only: [:new, :create ,:show, :edit, :update, :destroy
+  ]
    
    before_action :set_photo, only: [:show, :edit, :update, :destroy]
       
   def index
     @photos = Photo.order(id: :desc).page(params[:page]).per(3)
+   
   end
 
   def show
@@ -17,8 +18,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-      @photo = Photo.new(photo_params)
-
+      @photo =current_user.photos.build(photo_params)
     if @photo.save
       flash[:success] = 'The photo has been successfully posted!'
       redirect_to @photo
