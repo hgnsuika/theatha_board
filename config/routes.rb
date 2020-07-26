@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+  get 'comments/new'
+  get 'comments/create'
+  get 'comments/destroy'
+  get 'comments/create'
+  get 'comments/destroy'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
