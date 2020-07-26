@@ -18,6 +18,7 @@
       <tr>
         <th>Photo ID</th>
         <th>Name</th>
+        <th>time</th>
         <th>360 Photo</th>
         <th>caption</th>
       </tr>
@@ -27,9 +28,10 @@
         <tr>
           <td><%= link_to photo.id, photo %></td>
            
-          <td><%= link_to photo.user.name, user_path(photo.user) %> <span class="text-muted">posted at <%= photo.created_at %></span>
+          <td><%= link_to photo.user.name, user_path(photo.user) %></td>
+          <td><span class="text-muted">posted at <%= photo.created_at %></span></td>
         
-          <!--↑ここを修正したい。-->
+        
           <td><blockquote data-width="500" data-height="375" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/<%= photo.embended_html %>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
           <script async src="https://theta360.com/widgets.js" charset="utf-8"></script></td>
           <td><%= photo.caption %></td>

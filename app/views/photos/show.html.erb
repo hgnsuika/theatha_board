@@ -1,13 +1,5 @@
 <h1>id: <%= @photo.id %> detail of 360 Photo</h1>
 
-<!--<p>%= @photo.caption %></p>-->
- 
-<!--%= link_to @photo.id,@photo %> :% @photo.caption %>-->
-<!--<blockquote data-width="1000" data-height="750" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/<%= @photo.embended_html %>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>-->
-<!--<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>-->
- 
-
-
 <table class="table table-bordered">
   <tr>
     <th>id</th>
@@ -25,5 +17,8 @@
 </table>
 
 
-<%= link_to 'Edit the post', edit_photo_path(@photo), class: 'btn btn-light' %>
-<%= link_to 'Delete the post', @photo, method: :delete, data: { confirm: 'May I delete it?' }, class: 'btn btn-danger' %>
+ <% if current_user == @photo.user %>
+ <%= link_to 'Delete the post', @photo, method: :delete, data: { confirm: 'May I delete it?' }, class: 'btn btn-danger' %>
+
+<% end %>
+        
