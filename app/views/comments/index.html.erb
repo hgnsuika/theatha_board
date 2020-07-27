@@ -1,2 +1,6 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<div>
+     <%= link_to comments.user.name, comment_path(comment.user) %> <span class="text-muted">posted at <%= comment.created_at %></span>
+</div>
+ <div>
+    <%= paginate @comments %>
+ </div>
