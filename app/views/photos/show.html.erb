@@ -14,6 +14,18 @@
     <th>caption</th>
     <td><%= @photo.caption %></td>
   </tr>
+  <tr>
+    <th>comment</th>
+    
+
+    
+       <td>
+          <% @photo.comments.each do  |comment| %>
+          <%= comment.comment %> 
+          <% end %>
+       </td>
+  </tr>
+  
 </table>
 
 
