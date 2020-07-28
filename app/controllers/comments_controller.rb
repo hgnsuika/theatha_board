@@ -8,11 +8,13 @@ class CommentsController < ApplicationController
   
   def new
      @comment = Comment.new
+    
   end
+  
   
 
   def create
-      @comment =current_user.comments.build(comment_params)
+     @comment = Comment.new(user: current_user, photo_id: params[:photo_id], comment: params[:comment][:comment])
     if @comment.save
       flash[:success] = 'The comment has been successfully posted!'
       redirect_to root_url
@@ -37,5 +39,8 @@ end
   
 
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:comment, :photo)
   end
+ 
+
+    

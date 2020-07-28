@@ -11,13 +11,15 @@
           </ul>
         </div>
       <% end %>
-
+      <%= hidden_field_tag :photo, value: params[:photo] %>
       <div class="form-group">
+      
         <%= f.label :comment, 'Comment' %>
         <%= f.text_field :comment, class: 'form-control' %>
       </div>
     
       <%= f.submit 'Add Comment', class: 'btn btn-primary' %>
     <% end %>
- </div>
+ </div>　
 </div>
+
