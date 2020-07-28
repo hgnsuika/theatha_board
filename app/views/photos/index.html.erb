@@ -36,11 +36,15 @@
         
         
           <td><blockquote data-width="500" data-height="375" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/<%= photo.embended_html %>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
-          <script async src="https://theta360.com/widgets.js" charset="utf-8"></script></td>
+          <script defer src="https://theta360.com/widgets.js" charset="utf-8"></script></td>
           <td><%= photo.caption %></td>
 
-          <th><%= link_to 'Add comment', new_comment_path(photo: photo), class: "btn btn-primary" %></th>
-          <th>%= @comment.comment %></th> 
+          <th><%= link_to 'Add comment', new_comment_path(photo_id: photo.id), class: "btn btn-primary" %></th>
+          
+          <% photo.comments.each do  |comment| %>
+          <th><%= comment.comment %></th> 
+          <% end %>
+          
           
         </tr>
       <% end %> 
