@@ -16,34 +16,32 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Photo ID</th>
-        <th>Name</th>
-        <th>time</th>
+        <th>Details</th>
         <th>360 Photo</th>
-        <th>caption</th>
-        <th>add comment</th>
         <th>comments</th>
-        
       </tr>
     </thead>
+    
     <tbody>
       <% @photos.each do |photo| %>
         <tr>
-          <td><%= link_to photo.id, photo %></td>
-           
-          <td><%= link_to photo.user.name, user_path(photo.user) %></td>
-          <td><span class="text-muted">posted at <%= photo.created_at %></span></td>
-        
-        
-          <td><blockquote data-width="500" data-height="375" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/<%= photo.embended_html %>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
-          <script defer src="https://theta360.com/widgets.js" charset="utf-8"></script></td>
-          <td><%= photo.caption %></td>
-
-          <th><%= link_to 'Add comment', new_comment_path(photo_id: photo.id), class: "btn btn-primary" %></th>
+          <td>
+            <p>ID:<%= link_to photo.id, photo %></p>
+            <p><%= link_to photo.user.name, user_path(photo.user) %></p>
+            <p><%= photo.created_at.strftime('%Y/%m/%d')%></p>
+            <p>Caption:<%= photo.caption %></p>
+            <p><%= link_to 'comment', new_comment_path(photo_id: photo.id), class: "btn btn-primary" %></p>
+          </td>
+            
+          <td><blockquote data-width="400" data-height="275" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/<%= photo.embended_html %>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
+          </td>
           
+    
+          <td>
           <% photo.comments.each do  |comment| %>
-          <th><%= comment.comment %></th> 
+          <%= comment.comment %> 
           <% end %>
+          </td>
           
           
         </tr>
