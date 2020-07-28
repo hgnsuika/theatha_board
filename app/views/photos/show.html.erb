@@ -14,23 +14,24 @@
     <th>caption</th>
     <td><%= @photo.caption %></td>
   </tr>
-  <tr>
-    <th>comment</th>
-    
-
-    
-       <td>
-          <% @photo.comments.each do  |comment| %>
-          <%= comment.comment %> 
-          <% end %>
-       </td>
-  </tr>
   
 </table>
-
-
- <% if current_user == @photo.user %>
- <%= link_to 'Delete the post', @photo, method: :delete, data: { confirm: 'May I delete it?' }, class: 'btn btn-danger' %>
-
-<% end %>
+<div>
+    <h2>comment</h2>
+    
+        <% @photo.comments.each do  |comment| %>
+        <%= comment.comment %>
         
+        <% end %>
+          <!--% if current_user == @comment.user %>-->
+          <!--  %= link_to "Delete the comment", @comment, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>-->
+          <!--% end %>-->
+</div>       
+
+
+<div>
+   <% if current_user == @photo.user %>
+   <%= link_to 'Delete the post', @photo, method: :delete, data: { confirm: 'May I delete it?' }, class: 'btn btn-danger' %>
+  
+  <% end %>
+</div>        
