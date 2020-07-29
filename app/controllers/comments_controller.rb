@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :require_user_logged_in
-  
+  before_action :set_comment, only: [:destroy]
         
   def index
     @comments = Comment.order(id: :desc).page(params[:page]).per(15)
@@ -43,5 +43,7 @@ end
     params.require(:comment).permit(:comment, :photo)
   end
  
-
-    
+  
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end

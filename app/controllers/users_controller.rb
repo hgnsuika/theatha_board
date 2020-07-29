@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
   def show
       @user = User.find(params[:id])
+      @comments= @user.comments.order(id: :desc).page(params[:page])
+    
   end
 
   def new
