@@ -4,7 +4,9 @@
   <div class="center jumbotron">
     <div class="text-center">
       <h1>Welcome to the RICOH THETA Board</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+      <p><%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %></p>
+      <blockquote data-width="1000" data-height="750" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/3VG9cwRbUYooCyCrHf2SwsrnU" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
+      <script defer src="https://theta360.com/widgets.js" charset="utf-8"></script>
     </div>
   </div>
 <% end %>
@@ -40,7 +42,13 @@
           <td>
             <% photo.comments.last(5).reverse.each do  |comment| %>
             
-            <p><%= comment.comment %> :by <%= comment.user.name %></p> 
+            <p><%= comment.comment %> :by <%= comment.user.name %>
+                <%= comment.created_at.strftime('%Y/%m/%d')%>
+                <% if current_user == comment.user %>
+                <%= link_to "Delete the comment", comment, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                <% end %>
+              
+            </p>
             <% end %>
           </td>
           
