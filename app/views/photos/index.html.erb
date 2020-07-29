@@ -30,7 +30,7 @@
             <p><%= link_to photo.user.name, user_path(photo.user) %></p>
             <p><%= photo.created_at.strftime('%Y/%m/%d')%></p>
             <p>Caption:<%= photo.caption %></p>
-            <p><%= link_to 'details', photo, class: "btn btn-primary" %></p>
+            <p><%= link_to 'details', photo, class: "btn btn-info" %></p>
             <p><%= link_to 'comment', new_comment_path(photo_id: photo.id), class: "btn btn-primary" %></p>
           </td>
           <td><blockquote data-width="400" data-height="275" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/<%= photo.embended_html %>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
@@ -38,8 +38,9 @@
           </td>
           
           <td>
-            <% photo.comments.each do  |comment| %>
-            <%= comment.comment %> 
+            <% photo.comments.last(5).reverse.each do  |comment| %>
+            
+            <p><%= comment.comment %> :by <%= comment.user.name %></p> 
             <% end %>
           </td>
           

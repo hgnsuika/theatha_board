@@ -20,12 +20,14 @@
     <h2>comment</h2>
     
         <% @photo.comments.each do  |comment| %>
-        <%= comment.comment %>
+        <p><%= comment.comment %>:by <%= comment.user.name %>
+        <% if current_user == comment.user %>
+        <%= link_to "Delete the comment", comment, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+        <% end %></p>
         
         <% end %>
-          <!--% if current_user == @comment.user %>-->
-          <!--  %= link_to "Delete the comment", @comment, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>-->
-          <!--% end %>-->
+  
+
 </div>       
 
 
