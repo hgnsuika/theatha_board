@@ -4,7 +4,7 @@
       <img class="mr-2 rounded" src="<%= gravatar_url(comment.user, { size: 50 }) %>" alt="">
       <div class="media-body">
         <div>
-          <%= link_to comment.user.name, user_path(comment.user) %> <span class="text-muted">posted at <%= comment.created_at %></span>
+          <%= link_to comment.user.name, user_path(comment.user) %> <span class="text-muted">commented at <%= comment.created_at.strftime('%Y/%m/%d') %></span>
         </div>
         <div>
           <p class="mb-0"><%= comment.comment %> Photo ID:<%= link_to comment.photo.id, comment.photo %></p>

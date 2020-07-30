@@ -15,8 +15,8 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">Comments</a></li>
-      <li class="nav-item"><a href="<%= posts_user_path(@user.id) %>" class="nav-link">Photos</a></li>
+      <li class="nav-item"><a href="<%= comments_path(@user.id) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Comments <span class="badge badge-secondary"><%= @count_comments %></span></a></li>
+      <li class="nav-item"><a href="<%= posts_user_path(@user.id) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Photos <span class="badge badge-secondary"><%= @count_photos %></span></a></li>
    </ul>
     
         <%= render 'comments/comments', comments: @comments %>

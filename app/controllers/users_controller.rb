@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
       @user = User.find(params[:id])
       @comments= @user.comments.order(id: :desc).page(params[:page])
-    
+      counts(@user)
   end
 
   def new
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def posts
     @user=  User.find(params[:id])
     @photos= @user.photos.order(id: :desc).page(params[:page])
-    
+    counts(@user)
   end
   
   private
