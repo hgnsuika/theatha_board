@@ -15,8 +15,8 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= user_path(@user.id) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Comments <span class="badge badge-secondary"><%= @count_comments %></span></a></li>
       <li class="nav-item"><a href="<%= posts_user_path(@user.id) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Photos <span class="badge badge-secondary"><%= @count_photos %></span></a></li>
+      <li class="nav-item"><a href="<%= user_path(@user.id) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Comments <span class="badge badge-secondary"><%= @count_comments %></span></a></li>
     </ul>
 
         
@@ -29,9 +29,9 @@
           <%= link_to photo.user.name, user_path(photo.user) %> <span class="text-muted">posted at <%= photo.created_at.strftime('%Y/%m/%d') %></span>
         </div>
         <div>
-          <p class="mb-0"><%= photo.caption %> Photo ID:<%= link_to photo.id %></p>
+          <p class="mb-0"><%= photo.caption %> Photo ID:<%= link_to photo.id,photo %></p>
         </div>
-        <div class="media-body" >
+        <div class="media-body" > 
           
           <% if current_user == photo.user %>
             <%= link_to "Delete", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
