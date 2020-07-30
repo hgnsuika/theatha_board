@@ -7,7 +7,7 @@
           <%= link_to comment.user.name, user_path(comment.user) %> <span class="text-muted">posted at <%= comment.created_at %></span>
         </div>
         <div>
-          <p class="mb-0"><%= comment.comment %></p>
+          <p class="mb-0"><%= comment.comment %> Photo ID:<%= link_to comment.photo.id, comment.photo %></p>
         </div>
         <div class="media-body" >
           
