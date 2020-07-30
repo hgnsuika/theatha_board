@@ -1,0 +1,26 @@
+<ul class="list-unstyled">
+  <% comments.each do |comment| %>
+    <li class="media mb-3">
+      <img class="mr-2 rounded" src="<%= gravatar_url(comment.user, { size: 50 }) %>" alt="">
+      <div class="media-body">
+        <div>
+          <%= link_to comment.user.name, user_path(comment.user) %> <span class="text-muted">commented at <%= comment.created_at.strftime('%Y/%m/%d') %> </span>
+        </div>
+         <div>
+          <p class="mb-0"><%= comment.comment %> Photo ID:<%= link_to comment.photo.id, comment.photo %></p>
+        </div>
+        <div>
+          <p class="mb-0"><%= comment.comment %></p>
+        </div>
+        <div class="media-body" >
+          
+          <% if current_user == comment.user %>
+            <%= link_to "Delete", comment, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        
+         
+         </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate comments %>
