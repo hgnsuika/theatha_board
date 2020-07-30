@@ -29,6 +29,12 @@ class UsersController < ApplicationController
     end
   end
   
+  def posts
+    @user=  User.find(params[:id])
+    @photos= @user.photos.order(id: :desc).page(params[:page])
+    
+  end
+  
   private
 
   def user_params
